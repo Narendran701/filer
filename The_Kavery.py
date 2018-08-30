@@ -1,21 +1,16 @@
 import requests
-
 from bs4 import BeautifulSoup as bss
 
 class college:
         def kavery(self):
                 base_url = 'http://kavery.org.in/placement11-12.aspx'
-
                 head = {'User-Agent':'Mozilla/5.0 (Linux; <Android Version>'}
 
                 req = requests.get(url=base_url, headers=head)
-
-                soup = bss(req.content, 'lxml')
+                soup = bss(req.content, 'html.parser')
 
                 lokt = soup.find('table')
-
                 t_row = lokt.find_all('tr')
-
                 lst = []
 
                 for tm in t_row:
@@ -31,4 +26,3 @@ class college:
 
 obj = college()
 obj.kavery()
-		
